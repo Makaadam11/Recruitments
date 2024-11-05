@@ -1,0 +1,58 @@
+{
+    "models": {
+        "gpt-4": {
+            "model": "gpt-4",
+            "api_key": "your-gpt-4-api-key",
+            "connection_url": "https://api.openai.com/v1/models/gpt-4",
+            "enabled_metrics": ["hallucination", "relevancy", "faithfulness"],
+            "test_cases": [
+                {
+                    "input": "What is the capital of France?",
+                    "expected_output": "Paris is the capital of France.",
+                    "context": "Paris is the capital and largest city of France."
+                }
+            ]
+        },
+        "openai": {
+            "model": "openai-o1",
+            "api_key": "your-openai-api-key",
+            "connection_url": "https://api.openai.com/v1/models/openai-o1",
+            "enabled_metrics": ["hallucination", "relevancy", "contextual_precision"],
+            "test_cases": [
+                {
+                    "input": "What is the capital of Germany?",
+                    "expected_output": "Berlin is the capital of Germany.",
+                    "context": "Berlin is the capital and largest city of Germany."
+                }
+            ]
+        },
+        "google_gemini": {
+            "model": "gemini-pro",
+            "api_key": "your-google-gemini-api-key",
+            "connection_url": "https://api.google.com/v1/models/gemini-pro",
+            "enabled_metrics": ["hallucination", "relevancy", "contextual_recall"],
+            "test_cases": [
+                {
+                    "input": "What is the capital of Japan?",
+                    "expected_output": "Tokyo is the capital of Japan.",
+                    "context": "Tokyo is the capital and largest city of Japan."
+                }
+            ]
+        },
+        "claude": {
+            "model": "claude-3",
+            "api_key": "your-claude-api-key",
+            "connection_url": "https://api.anthropic.com/v1/models/claude-3",
+            "enabled_metrics": ["hallucination", "relevancy", "faithfulness"],
+            "test_cases": [
+                {
+                    "input": "What is the capital of Italy?",
+                    "expected_output": "Rome is the capital of Italy.",
+                    "context": "Rome is the capital and largest city of Italy."
+                }
+            ]
+        }
+    },
+    "max_workers": 4,
+    "alert_threshold": 0.1
+}

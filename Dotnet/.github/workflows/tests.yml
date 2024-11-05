@@ -1,0 +1,29 @@
+name: Run NUnit Tests
+
+on:
+  push:
+    branches:
+      - implementation
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+      - name: Add NUnit.Console NuGet package reference 
+        run: dotnet add ./app/Tests.nUnitTests package NUnit.Console
+      - name: Build
+        working-directory: ./app
+        run: |
+          dotnet build ./backend/backend.csproj
+      - name: Test
+        working-directory: ./app/Tests.nUnitTests
+        run: |
+          dotnet test    
+      
